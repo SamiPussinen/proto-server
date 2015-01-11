@@ -7,5 +7,6 @@ server.get(/^(.+)$/, (req, res) ->
 	res.sendFile( __dirname + '/public/' + req.params[0])
 )
 
-server.listen(3000)
-console.log('Server listening on port 3000, ' + message())
+port = if process.argv[2] then process.argv[2] else 8080
+server.listen(port)
+console.log('Server listening on port ' + port + ', ' + message())

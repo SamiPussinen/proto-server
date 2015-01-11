@@ -1,5 +1,5 @@
 (function() {
-  var express, message, server;
+  var express, message, port, server;
 
   message = require('./message');
 
@@ -12,8 +12,10 @@
     return res.sendFile(__dirname + '/public/' + req.params[0]);
   });
 
-  server.listen(3000);
+  port = process.argv[2] ? process.argv[2] : 8080;
 
-  console.log('Server listening on port 3000, ' + message());
+  server.listen(port);
+
+  console.log('Server listening on port ' + port + ', ' + message());
 
 }).call(this);
