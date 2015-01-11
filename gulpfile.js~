@@ -1,0 +1,13 @@
+var gulp = require('gulp');
+var browserify = require('gulp-browserify');
+var concat = require('gulp-concat');
+var jade = require('gulp-jade');
+var coffee = require('gulp-coffee');
+
+gulp.task('server', function() {
+	gulp.src('src/js/*.coffee')
+		.pipe(coffee())
+		.pipe(gulp.dest('.'));
+});
+
+gulp.task('default', ['client', 'templates', 'server']);
